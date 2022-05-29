@@ -1,7 +1,7 @@
 import shutil
 import zipfile
 import os
-
+from os.path import exists
 class ManageFile:
 
 
@@ -34,9 +34,11 @@ class ManageFile:
             zip_ref.extractall(b)
 
     #delete previous CSV file
-    def deletePreviousFile(self,location):
-       # file = "stock_market_data"
-       #LOCATION = "/Users/roypinhas/Desktop/pythonProject"
-       # path = os.path.join(location, file)
-        os.remove(location)
+    def deletePreviousFile(self,path):
+        if exists(path):
+            # file = "stock_market_data"
+            #LOCATION = "/Users/roypinhas/Desktop/pythonProject"
+            # path = os.path.join(location, file)
+            os.remove(path)
+            #shutil.rmtree(path)
 
